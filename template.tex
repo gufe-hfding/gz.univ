@@ -1,0 +1,1845 @@
+%% Thesis Template of GZ.Univ
+%%   for using revised CASthesis package with LaTeX2e
+%%
+%% Created by snda.liu <thinksheng@foxmail.com>
+%%
+%% $Id: template.tex,v 0.33 2017/07/14 16:23:46   $
+
+%%%请使用pdflatex或pdftexify编译
+
+
+
+
+
+
+\documentclass[pdftex,notypeinfo,twoside,openany]{CASthesis}
+%oneside单面打印，twoside双面打印；支持环保，选择双面打印!
+%twoside,openany只是表示pdf按照双面打印准备，当你去复印社时，依然需要跟老板说明：“你需要双面打印”。
+
+\graphicspath{{chapter/}{figures/}} % 设置图形文件的搜索路径
+
+\CTEXsetup[format+={\flushleft}]{section} % 小节标题靠左对齐
+
+\allowdisplaybreaks[4] %公式强制分页
+
+%\renewcommand{\baselinestretch}{1.5} %行间距，默认为1.3
+\usepackage{setspace}
+
+\usepackage{geometry} %设置页边距
+\geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
+
+\setcounter{tocdepth}{2}%设定目录层级（通常取值0-2之间）
+
+
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  \classification{}%分类号
+  \confidential{}%密级
+  \serialnumber{}%论文编号
+  \school{贵\ \ 州\ \ 大\ \ 学}
+  \degree{2017届硕士}
+  \title{论文标题0.33}
+  \author{本人姓名}
+  \advisor{导师姓名}
+  \xuekezhuanye{你的专业}
+  \yanjiufangxiang{你的研究方向}
+  \riqi{2017年~5月}
+  \didian{中国$\cdot$贵州$\cdot$贵阳}
+%  请适当替换上述文字
+
+
+ \oddyemei{\leftmark}
+ \evenyemei{贵州大学硕士学位论文}
+
+
+  % 封面
+  \maketitle
+  \frontmatter%前序页码i ii iii iv
+  % 目录
+  \tableofcontents
+  % 表格目录
+ % \listoftables
+  % 插图目录
+ % \listoffigures
+ \cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要
+\begin{abstract}
+本文是贵州大学硕士、博士学位论文的~\LaTeX{}~模板。
+本模板基于中科院~\texttt{CASthesis}~制作。本文
+除了介绍~\LaTeX{}~文档类
+~\texttt{CASthesis}~的用法外，还是一个简要的学位论文写作指南。
+
+\keywords{贵州大学，学位论文，\LaTeX{}~模板}
+\end{abstract}
+
+
+\begin{englishabstract}
+This paper is a thesis template of guizhou university. The template based on Casthesis of
+Chinese Academy of Sciences. Besides that
+the usage of the \LaTeX{} document class \texttt{CASthesis}, a brief
+guideline for writing the thesis is also included.
+
+\englishkeywords{gz.univ , Thesis, \LaTeX{}
+Template}
+\end{englishabstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要结束
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter%正式页码1 2 3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第1章
+\chapter{引言}
+\label{chap:introduction}
+
+\textbf{\textcolor[rgb]{1.00,0.00,0.00}{本模板适用于曾经至少使用\LaTeX录入过一篇文章的人士。如果你从来没有用过\LaTeX，在还有半年就要毕业的时候，Microsoft$^{\circledR}$ Word 或金山$^\circledR$ WPS 依然是你最优的选择！}}
+免费的金山$^\circledR$ WPS可以在~\url{http://www.wps.cn}下载。
+
+在使用此模板正式录入论文之前，建议你向你的导师咨询，此模板是否符合他 （or 她）的要求，以免在论文基本录入结束后，因为标号顺序、页眉、页码等问题造成困扰。
+
+\textbf{template.tex}是用来生成：\textcolor[rgb]{0.00,0.00,1.00}{给老师看的版本、答辩的版本、最后上交的版本。}
+
+\textbf{论文盲评.tex}是用来生成：\textcolor[rgb]{0.00,0.00,1.00}{盲评的版本}。
+
+\textbf{PPT.tex}是用来制作：\textcolor[rgb]{0.00,0.00,1.00}{答辩所用的PPT(beamer)}。
+
+\textbf{figures}目录用来：\textcolor[rgb]{0.00,0.00,1.00}{放置图片(支持PDF,JPG,JPEG,PNG格式的图片)}。
+
+\textbf{CASthesis.cfg}和\textbf{CASthesis.cls}请\textcolor[rgb]{1.00,0.00,0.00}{不要}：\textcolor[rgb]{0.00,0.00,1.00}{随意改动}！
+
+\songti{虽然学校}制定了学位论文撰写要求（参见附录~\ref{chap:requires2}）
+，但目前学位论文的排版仍然不是很规范。其中的一个原因是多样化的排版工具，
+有~Word~的也有~\LaTeX{}~的。即使都是~\LaTeX{}~排版的，但由于没有统一的模板，
+每个学位论文的排版结果都不一样。
+\texttt{CASthesis}~宏包是以中科院宏包作者aloft(吴凌云，CTEX站长)的博士论文为基础模板，根据中国科学院研究
+生院学位论文撰写要求编写的。宏包的另一个目的是简化学位论文的撰写，使得论文
+作者可以将精力集中到论文的内容上而不是浪费在版面设置上。同时宏包在符合学位
+论文撰写要求的基础上尽可能地进行美化，其中还参考了出版界的一些排版规范。
+
+基于中科院CASthesis模板并参照贵州大学学位论文要求，作者对CASthesis进行了\textbf{深度定制}。
+
+\section{系统要求}
+
+\texttt{CASthesis}~宏包可以在目前大多数的~\TeX{}~系统中使用，例如~C\TeX{}、
+~MiK\TeX{}、~te\TeX{}、~fp\TeX{}。
+
+\texttt{CASthesis}~宏包通过~\texttt{ctex}~宏包来获得中文支持。~\texttt{ctex}~
+宏包提供了一个统一的中文~\LaTeX{}~文档框架，底层支持~CCT~和~CJK~两种中文~\LaTeX{}~系统。
+最新的~\texttt{ctex}~宏包可以从~\url{http://www.ctex.org}~网站下载。
+
+此外，~\texttt{CASthesis}~宏包还使用了宏包~amsmath、~amsthm、~amsfonts、
+~amssymb、~bm~和~hyperref。目前大多数的~\TeX{}~系统中都包含有这些宏包。
+
+最新的~C\TeX{}~套装（2.4.1~以上版本）中包含了以上列出的各种宏包，用户无需额外的设置即可使用。
+
+\section{下载与安装}
+
+
+
+\texttt{CASthesis}~宏包包含两个文件：~\texttt{CASthesis.cls}~和~\texttt{CASthesis.cfg}。
+简单方便的安装方法是将宏包文件和学位论文~\texttt{.tex}~文件放置在同一目录下。
+或者将宏包文件放置到~\TeX{}~系统的~localtexmf/tex/latex/casthesis~目录下，
+然后刷新~\TeX{}~系统的文件名数据库。
+
+同时，宏包还提供了一个使用模板，也就是这份说明文档的源文件。用户可以通过修改
+这个模板来编写自己的学位论文。
+
+
+
+关于安装过程的问题可以参考~C\TeX{}-FAQ~以及其他~\LaTeX{}~教材。
+
+欢迎在\url{https://git.oschina.net/shengda/gz.univ.git}中获取\textbf{最新的}贵州大学硕士博士论文latex模板！
+
+
+\textcolor[rgb]{0.00,0.07,1.00}{拿到模板后，你可能需要修改\textbf{template.tex}中的}
+
+\textcolor[rgb]{0.00,0.07,1.00}{（预计）第44-55行:}
+\begin{verbatim}
+  \classification{}%分类号
+  \confidential{}%密级
+  \serialnumber{}%论文编号
+  \school{贵\ \ 州\ \ 大\ \ 学}
+  \degree{2017届硕士}
+  \title{论文标题0.33}
+  \author{本人姓名}
+  \advisor{导师姓名}
+  \xuekezhuanye{你的专业}
+  \yanjiufangxiang{你的研究方向}
+  \riqi{2017年~5月}
+  \didian{中国$\cdot$贵州$\cdot$贵阳}
+\end{verbatim}
+
+\textcolor[rgb]{0.00,0.07,1.00}{（预计）第60行:}
+\begin{verbatim}
+ \evenyemei{贵州大学硕士学位论文}
+\end{verbatim}
+
+\textcolor[rgb]{0.00,0.07,1.00}{（预计）第1795行:}
+\begin{verbatim}
+\Nchapter{攻读硕士学位期间科研和论文情况}  %博士同学请注意修改此标题
+\end{verbatim}
+
+\textcolor[rgb]{0.00,0.07,1.00}{以及\textbf{论文盲评.tex}中的}
+
+\textcolor[rgb]{0.00,0.07,1.00}{（预计）第37-80行:}
+\begin{verbatim}
+\evenyemei{贵州大学硕士学位论文}
+...
+\kaishu\zihao{-0}{\textbf{2017届硕士学位论文}}
+...
+\heiti\zihao{1}{论文题目}
+...
+\heiti\zihao{3}{学科专业：
+\uwave{\hbox to 52mm{~~~~~~~~~~~~应用数学~~~~~~~~~~~~}}\\
+研究方向：\uwave{\hbox to 52mm{~~~~~~~~微分方程及应用~~~~~~~~}}}
+...
+\heiti\zihao{4}{中国$\cdot$贵州$\cdot$贵阳\\2017年~5月}  
+\end{verbatim}
+
+
+\section{说明}
+\subsection{编译}
+
+请使用pdflatex或pdftexify编译；
+
+上述两种编译器，可以识别的图片格式有：PDF,JPG,JPEG,PNG。
+
+\subsection{template0.20版}
+
+这一版本与0.19版的主要区别在于：增加了页眉，并修改了打印方式。
+
+此版本按照双面打印的准备进行。\textcolor[rgb]{0.00,0.00,1.00}{支持环保，选择双面打印!} 当你去打印时，请跟复印店说明：\textbf{你需要双面打印}。
+
+第二页的空白是为了保证目录位于奇数页上，不必困扰。基于类似的原因，第四页也\textbf{可能}是空白。
+
+
+
+\subsection{更新日志}
+
+0.20c：支持插入程序代码，支持中文摘要位于奇数页上，增加设定目录层级。
+去除掉版权声明页的页码。
+
+0.30: 增加对表格内换行的支持。需要使用 $\setminus tabincell$. 更新了原创性声明。
+
+0.31：优化了目录乱码的处理方式，详见\ref{shuqianluanma}。定义、定理、引理分开排序。
+
+0.32: 增加了PPT(beamer)模板。
+
+
+
+
+\subsection{论文盲评0.12版}
+
+由于论文盲评可能需要上传电子版，为避免空白页给盲评老师带来困扰，因此 这一版本依然采用单面打印模式。
+
+根据贵州大学最新的盲评办法，盲评仅需要提交pdf版论文，不需要提交纸质版论文。因此论文按照何种打印模式准备，并不影响盲评。
+
+\subsection{PPT.tex}
+\textbf{自选PPT的样式和结构：}打开
+\url{https://www.hartwork.org/beamer-theme-matrix/}
+网站后，自选latex模板样式。例如： 如果你选择第四行第二个，只需将PPT.tex的第25-26行源代码：
+\begin{verbatim}
+\usetheme{Madrid}
+\usecolortheme{default}
+\end{verbatim}
+替换为:
+\begin{verbatim}
+\usetheme{Bergen}
+\usecolortheme{albatross}
+\end{verbatim}
+
+
+\section{问题反馈}
+
+用户在使用中遇到问题或者需要增加某种功能，都可以和作者联系：
+
+\begin{center}
+中科院原版作者：吴凌云 (aloft)
+%\quad \href{mailto:aloft@ctex.org}{aloft@ctex.org}
+\\
+贵州大学修改版作者：刘圣达\quad \href{mailto:thinksheng@foxmail.com}{thinksheng@foxmail.com}
+\end{center}
+
+欢迎大家反馈自己的使用情况，使我们可以不断改进。最新版本的论文模板可以在\url{https://git.oschina.net/shengda/gz.univ.git}处获取。
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第1章结束
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第2章
+\chapter{数学公式}
+\label{chap:math}
+
+\textcolor[rgb]{0.00,0.00,1.00}{本章可以不必阅读。仅作为例子，以供参考。}
+下面的例子包含了许多数学公式需要使用的情形：
+
+
+
+\section{分数阶导数与积分的定义}
+
+
+
+首先, 我们将回顾函数分数阶微积分的定义. 专著\cite{Kilbas}中有更为详细的介绍.
+
+\begin{defn}\upcite{Kilbas}(Riemann-Liouville型分数积分)
+函数$f:[0,\infty)\rightarrow \mathbb{R}$以$0$为积分下限的$\alpha$ ($\alpha>0$)阶积分为
+\[
+I_{0^+}^{\alpha}
+ f(t)=\frac{1}{\Gamma(\alpha)}\int_{0}^{t}\frac{f(s)}{(t-s)^{1-\alpha}}ds,~
+  t>0,
+\]
+其中$\Gamma(\cdot)$是Gamma函数~~(Gamma函数:$\Gamma(s)=\int^{\infty}_{0}e^{-x}x^{s-1}dx$, $s>0$).
+\end{defn}
+
+\begin{defn}\upcite{Kilbas}(Riemann-Liouville型分数导数)
+函数$f:[0,\infty)\rightarrow \mathbb{R}$以$0$为积分下限的$\alpha$($\alpha>0$)阶Riemann-Liouville导数为
+\[
+^LD_{0^+}^{\alpha}
+  f(t)=\frac{1}{\Gamma(n-\alpha)}\frac{d^n}{dt^n}\int_{0}^{t}\frac{f(s)}{(t-s)^{\alpha+1-n}}ds,
+~n-1<\alpha<n,
+\]
+其中, $n=[\alpha]+1$ ($[\alpha]$表示$\alpha$的整数部分).
+\end{defn}
+
+\begin{defn}\upcite{Kilbas}(经典Caputo型分数导数)
+函数$f:[0,\infty)\rightarrow \mathbb{R}$以$0$为积分下限的$\alpha$($\alpha>0$)阶Caputo导数为
+\[
+^{C}D_{0^+}^{\alpha}
+  f(t)=\frac{1}{\Gamma(n-\alpha)}\int_{0}^{t}\frac{f^{(n)}(s)}{(t-s)^{\alpha+1-n}}ds,
+~n-1<\alpha<n,
+\]
+其中, $n=[\alpha]+1$ ($[\alpha]$表示$\alpha$的整数部分).
+\end{defn}
+显然, 任意常数的Caputo导数为0.
+
+值得注意的是, 阶数为$\alpha$的Riemann-Liouville分数导数与Caputo分数导数存在着一定联系, 即为:
+\begin{defn}\upcite{Kilbas}(弱Caputo型导数)
+函数$f:[0,\infty)\rightarrow \mathbb{R}$以$0$为积分下限的$\alpha$($\alpha>0$)阶导数为
+\begin{eqnarray*}
+^{C}D_{0^+}^{\alpha}f(t)=~^LD_{0^+}^{\alpha}\bigg [
+f(t)-\sum^{n-1}_{k=0}\frac {t^k}{k!} f^{(k)}(0)\bigg ],
+  ~t>0,~n-1<\alpha <n,
+\end{eqnarray*}
+其中, $n=[\alpha]+1$ ($[\alpha]$表示$\alpha$的整数部分).
+\end{defn}
+
+\begin{lemma}\upcite{Kilbas}\label{lem-ID}
+当$\alpha>0$, $n=[\alpha]+1$ $(n \notin \mathbb{N})$ 或 $n=\alpha$
+$(n \in \mathbb{N})$, 如果$y(x) \in C^{(n)}[a,b]$, 则
+\begin{eqnarray*}
+(I^{\alpha}_{a^+}~^{C}D^{\alpha}_{a^+} y) (x)=y(x)-\sum^{n-1}_{k=0}\frac{y^{(k)}(a)}{k!}(x-a)^k.
+\end{eqnarray*}
+特别地, 当$0<\alpha <1$, $y(x) \in C[a,b]$, 则
+$$(I^{\alpha}_{a^+}~^{C}D^{\alpha}_{a^+} y) (x)=y(x)-y(a),$$
+$$(^{C}D^{\alpha}_{a^+}~I^{\alpha}_{a^+} y) (x)=y(x).$$
+\end{lemma}
+
+
+
+\section{重要引理和不动点定理}
+
+
+
+\begin{defn}\upcite{R. Precup09}
+当矩阵$M$满足$M^k\rightarrow 0$~($k \rightarrow \infty$)时, 则称$M$是收敛于零的.
+\end{defn}
+
+\begin{lemma}\upcite{R. Precup09, Precup-KD}\label{lem-1}
+下述命题等价:\\
+$(i)$ $M$是一个收敛于零的矩阵;
+\\
+$(ii)$ $I-M$是非奇异的, 并且$(I-M)^{-1}= \sum_{k=0}^{\infty}M^k$, 其中
+$I$表示与$M$具有相同阶数的单位矩阵;
+\\
+$(iii)$ 对每个$\lambda \in \mathbb{C}$且$|M-\lambda I|=0$, 存在$|\lambda|<1$；
+\\
+$(iv)$ $I-M$是非奇异的, 并且逆元$(I-M)^{-1}$的元素都是非负元素.
+\end{lemma}
+
+\begin{lemma}\upcite{Nica-FIX}\label{lem-2}
+如果$A$是一个收敛于零的矩阵, 并且对于同阶的矩阵$B$, 其元素足够小, 则$A+B$也是收敛于零的.
+\end{lemma}
+
+\begin{defn}\upcite{Nica-FIX,NicaP}\label{Matrix-vector}
+$X$是一个非空集合, 在$X$上定义一个范数$d:X\times X\rightarrow \mathbb{R}_+^n$使其满足\\
+$(i)$ 对任意$u,v\in X$, 满足$d(u,v)\geq 0$, 并且当且仅当$u=v$时$d(u,v)=0$;
+\\
+$(ii)$ 对任意$u,v\in X$, $d(u,v)=d(v,u)$;\\
+$(iii)$ 对任意$u,v\in X$, $d(u,v)\leq d(u,w)+d(w,v)$.
+\end{defn}
+
+如果$x,y \in \mathbb{R}^n$, $x=(x_1,x_2,\cdots x_n),~
+y=(y_1,y_2,\cdots y_n)$, 当$i=1,2\cdots n$, $x_i \leq y_i$ 时,
+称$x\leq y$. $(X,d)$是广义的矩阵空间. 类同于一般度量空间的性质,
+该空间也具有收敛性和完备性.
+
+\begin{defn}\upcite{Nica-FIX,NicaP}\label{contractive}
+如果存在一个收敛于零的矩阵$M$满足
+\[
+d(T(u),T(v))\leq M d(u,v),~~~~~u,v \in X,
+\]
+称算子$T:X\rightarrow X$在$X$上基于范数$d$是收敛的.
+\end{defn}
+
+\begin{lemma}(Arzala-Ascoli定理) 设$S=\{s(t)\}$是Banach空间$X$的一些连续映射所构成的函数族, 满足: $(i)$ $S$一致有界, 即存在$M >0$, 使对$\forall s \in S$, $t \in J$, 有$|s(t)|\leq M;$ $(ii)$ $S$等度连续, 即对任意$\varepsilon > 0$, 存在$\delta = \delta(\varepsilon)>0$, 使对$\forall s \in S$, $t_1,t_2 \in J$, 只要$|t_1-t_2|<\delta$, 就存在$|x(t_1)-x(t_2)|<\varepsilon$. 则从$S$中必可选取一个在$J$上一致收敛的函数序列$\{s_n(t)\}$~$n=1,2,\cdots$, 且收敛于某个$s(t)$.
+\end{lemma}
+
+\begin{defn}(全连续算子)
+令$X$是一个Banach空间, 如果对$X$的每一个子集$S$, $T(S)$是紧的, 那么,
+算子$T:X\rightarrow X$叫做完全有界的. 更进一步,
+如果$T$在$X$上是连续并且完全有界, 那么, $T$就叫$X$的全连续算子.
+\end{defn}
+
+
+\begin{theorem}\upcite{Agarwal-C}(Perov不动点定理)\label{perov}
+设$(X,d)$是非空的完备度量空间, $T: X\rightarrow
+X$是一个具有Lipschitz矩阵$M$的压缩映射,
+则$T$在$X$上有唯一的不动点$u^*$, 并且对每个$u_0 \in X$,
+有$d(T^{k}(u_0),u^*)\leq M^k(I-M)^{-1}d(u_0,T(u_0))$, $k \in
+\mathbb{N}$.
+\end{theorem}
+
+\begin{theorem}\upcite{Agarwal-C}(Schauder不动点定理)\label{schauder}
+设$X$是实Banach空间, $D$是$X$中的非空有界闭凸集,
+如果算子$T:D\rightarrow D$全连续, 则算子$T$在$D$中至少有一个不动点.
+\end{theorem}
+
+\begin{theorem}\upcite{Agarwal-C}(Leray-Schauder不动点定理)\label{Leray-schauder}
+设$(X,\|\cdot\|_X)$是Banach空间, $R>0$,
+$T:\bar{B}_{R}(0;X)\rightarrow X$是一全连续算子, 如果对$u=\lambda
+T(U)$($\lambda\in (0,1)$)的每一个解$u$满足$\|u\|<R$,
+则$T$至少有一个不动点.
+\end{theorem}
+
+
+
+\section{常用积分不等式}
+
+
+
+\begin{lemma}(H\"{o}lder不等式) 设$p,q> 1$满足$\frac{1}{p}+\frac{1}{q}=1$. 如果$u \in L^p(J,\mathbb{R})$, $v \in L^q(J,\mathbb{R})$, 那么$uv \in L^{1}(J,\mathbb{R})$ 且$$\|uv\|_{L^1}\leq\|u\|_{L^p}\|v\|_{L^q}.$$
+\end{lemma}
+
+
+\begin{lemma}
+若$A>B>0$, 则
+$$A^{\alpha}-B^{\alpha}\leq (A-B)^\alpha,~\mbox{当}~0<\alpha\leq1.$$
+\end{lemma}
+
+
+\begin{lemma}\label{int-lemma}
+当 $0<\alpha<1$, $\tau >0$时, 对积分
+\begin{eqnarray*}
+Z:=\int^t_0(t-s)^{\alpha-1}e^{\tau s^\alpha}ds,~t\in [0,1].
+\end{eqnarray*}
+成立下述结论:
+\begin{eqnarray*}
+Z&\leq& \frac{e^{\tau t^\alpha}}{\alpha([\tau]+1)^{\alpha}},~~~~~[\tau]=0,\\
+Z&\leq& \frac{2e^{\tau t^\alpha}}{\alpha[\tau]^{\alpha}},~~~~~~~~~~~~~~~[\tau]\geq1.
+\end{eqnarray*}
+\end{lemma}
+\begin{proof} 取
+$$Z_1:=\sum_{i=1}^{[\tau]}\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}(t-s)^{\alpha-1}e^{\tau
+s^\alpha}ds,$$
+$$Z_2:=\int^{t}_{\frac{[\tau]t}{[\tau]+1}}(t-s)^{\alpha-1}e^{\tau
+s^\alpha}ds.$$
+
+第一种情形: 当 $[\tau]=0$ 时, $Z=Z_2$成立.
+
+显然,
+\begin{eqnarray*}
+Z_2&:=&\int^{t}_{\frac{[\tau]t}{[\tau]+1}}(t-s)^{\alpha-1}e^{\tau
+s^\alpha}ds\\ &\leq&e^{\tau
+t^\alpha}\int^{t}_{\frac{[\tau]t}{[\tau]+1}}(t-s)^{\alpha-1}ds
+~=~\frac{t^\alpha e^{\tau t^\alpha}}{\alpha([\tau]+1)^{\alpha}}
+~\leq~ \frac{e^{\tau t^\alpha}}{\alpha([\tau]+1)^{\alpha}}.
+\end{eqnarray*}
+
+第二种情形: 当$[\tau]\geq 1$时, 有$Z=Z_1+Z_2$,
+$$Z_2\leq \frac{e^{\tau t^\alpha}}{\alpha[\tau]^{\alpha}}.$$
+
+其中,
+\begin{eqnarray*}
+&&\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}(t-s)^{\alpha-1}e^{\tau
+s^\alpha}ds\\
+&\leq&\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}\left(\frac{([\tau]+1)
+s}{i}-s\right)^{\alpha-1}e^{\tau
+s^\alpha}ds~~\left(s\leq\frac{it}{[\tau]+1}\Longrightarrow t \geq\frac{([\tau]+1) s}{i}\right)\\
+&\leq&\left(\frac{[\tau]+1}{i}-1\right)^{\alpha-1}\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}
+s^{\alpha-1}e^{\tau s^\alpha}ds\\
+&\leq&\left(\frac{[\tau]+1}{i}-1\right)^{\alpha-1}\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}
+e^{\tau s^\alpha}d\left(\frac{1}{\alpha}s^{\alpha}\right)\\
+&=&\frac{1}{\tau
+\alpha}\left(\frac{[\tau]+1}{i}-1\right)^{\alpha-1}\left[e^{\tau
+\left(\frac{it}{[\tau]+1}\right)^\alpha}-e^{\tau
+\left(\frac{(i-1)t}{[\tau]+1}\right)^\alpha}\right],
+\end{eqnarray*}
+因此,
+\begin{eqnarray*}
+Z_1&:=&\sum_{i=1}^{[\tau]}\int^{\frac{it}{[\tau]+1}}_{\frac{(i-1)t}{[\tau]+1}}(t-s)^{\alpha-1}e^{\tau
+s^\alpha}ds\\
+&\leq&
+\sum_{i=1}^{[\tau]}\frac{1}{\tau\alpha}\left(\frac{[\tau]+1}{i}-1\right)^{\alpha-1}\left[e^{\tau
+\left(\frac{it}{[\tau]+1}\right)^\alpha}-e^{\tau\left(\frac{(i-1)t}{[\tau]+1}\right)^\alpha}\right]\\
+&=&\frac{1}{\tau\alpha}\sum_{i=1}^{[\tau]}\left(\frac{[\tau]+1}{i}-1\right)^{\alpha-1}\left[e^{\tau\left(\frac{it}{[\tau]+1}\right)^\alpha}-e^{\tau\left(\frac{(i-1)t}{[\tau]+1}\right)^\alpha}\right]\\
+&=&\frac{1}{\tau\alpha}\bigg\{[\tau]^{\alpha-1}\left[e^{\tau\left(\frac{t}{[\tau]+1}\right)^{\alpha}}-1\right]+\left(\frac{[\tau]+1}{2}-1\right)^{\alpha-1}\left[e^{\tau
+\left(\frac{2t}{[\tau]+1}\right)^\alpha}-e^{\tau \left(\frac{t}{[\tau]+1}\right)^\alpha}\right]\\
+&& +\cdots
++\left(\frac{[\tau]+1}{[\tau]}-1\right)^{\alpha-1}\left[e^{\tau
+\left(\frac{[\tau]t}{[\tau]+1}\right)^\alpha}-e^{\tau
+\left(\frac{([\tau]-1)t}{[\tau]+1}\right)^\alpha}\right] \bigg\}\\
+&\leq&\frac{1}{\tau
+\alpha}\left[\left(\frac{1}{[\tau]}\right)^{\alpha-1}e^{\tau
+\left(\frac{[\tau]t}{[\tau]+1}\right)^\alpha}-[\tau]^{\alpha-1}\right]\\
+&\leq&\frac{1}{\tau
+\alpha}\left(\frac{1}{[\tau]}\right)^{\alpha-1}e^{\tau
+\left(\frac{[\tau]t}{[\tau]+1}\right)^\alpha}\\
+&\leq&\frac{1}{\tau
+\alpha}\left(\frac{1}{\tau}\right)^{\alpha-1}e^{\tau
+t^\alpha}\\
+&\leq&\frac{e^{\tau t^\alpha}}{\alpha\tau^{\alpha}}\\
+&\leq&\frac{e^{\tau t^\alpha}}{\alpha[\tau]^{\alpha}}.
+\end{eqnarray*}
+
+结合$Z_1$和$Z_2$的结论, 引理结论得到了验证.
+\end{proof}
+
+
+
+\section{解的存在唯一性定理}
+
+
+
+\begin{theorem}\label{th-p-1}
+若假设$[H1]$, $[H2]$, $[H3]$成立, 则系统 (\ref{sy.1})
+有唯一解.
+\end{theorem}
+\begin{proof}
+根据假设$[H2]$和引理\ref{lem-1}(iv), 可知, $I-M_{\theta}$是可逆的,
+并且, 其逆元$(I-M_{\theta})^{-1}$中的元素都是非负元素.
+
+定义
+\[
+\tilde{U}=\{(x,y)\in C[0,1]\times C[0,1]:\|x\|_C \leq \tilde{R}_1,~\|y\|_C \leq
+\tilde{R}_2\},
+\]
+其中,
+\begin{eqnarray*}
+\left[
+\begin{array}{l}
+\tilde{R}_1\\
+\tilde{R}_2
+\end{array}
+\right] \geq (I-M_{\theta})^{-1} \left[
+\begin{array}{l}
+ \tilde{M}_1\\
+\tilde{M}_2
+\end{array}
+ \right],
+\end{eqnarray*}
+\[
+\tilde{M}_1=\left(A_1l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)
+f_{\max},~~~\tilde{M}_2=
+\left(A_2l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right) g_{\max},
+\]
+记, $f_{\max}=\max_{t\in [0,1]}\left|f(t,0,0)\right|$,
+$g_{\max}=\max_{t\in [0,1]}\left|g(t,0,0)\right|$.
+
+
+第一步: 证明对于任意的$(x,y) \in \tilde{U}$, $T(\tilde{U}) \subset
+\tilde{U}$.
+
+对任意$(x,y)\in \tilde{U}$, 定义 $M_1=\sup_{(t,x,y)\in [0,1]\times
+\tilde{U}}\left|f(t,x,y)\right|$和$M_2=\sup_{(t,x,y)\in [0,1]\times
+\tilde{U}}\linebreak[4] \left|g(t,x,y)\right|$.
+
+首先, 当$0\leq t_\alpha<t_\beta\leq t_m$, 依据$[H1]$, $[H2]$, $[H3]$, 可得
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t_\beta)-T_1(x,y)(t_\alpha)\right|\\
+&=&
+\bigg|-a\sum^{m}_{k=1}a_k\int_{0}^{t_k}
+\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
++\int_{0}^{t_\beta}\frac{(t_\beta-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\\
+&&+a\sum^{m}_{k=1}a_k\int_{0}^{t_k}
+\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
+-\int_{0}^{t_\alpha}\frac{(t_\alpha-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\bigg|\\
+&\leq&\frac{M_1}{\Gamma(\gamma)}\left[\int^{t_\alpha}_{0}\left|(t_\beta-s)^{\gamma-1}
+-(t_\alpha-s)^{\gamma-1}\right|ds
++\int^{t_\beta}_{t_\alpha}(t_\beta-s)^{\gamma-1}ds\right]\\
+&\leq&\frac{M_1}{\Gamma(\gamma)}\left[\frac{1}{\gamma}
+\left((t_\beta-t_\alpha)^\gamma+(t_{\beta}^\gamma-t_{\alpha}^\gamma)+(t_\beta-t_\alpha)^\gamma\right)\right]\\
+&\leq&\frac{3M_1}{\Gamma(\gamma+1)}(t_\beta-t_\alpha)^\gamma,
+\end{eqnarray*}
+当$t_\beta\rightarrow t_\alpha$时, 可以得出
+\[
+\left|T_1(x,y)(t_\beta)-T_1(x,y)(t_\alpha)\right|\rightarrow
+0.
+\]
+
+其次, 当$t_m<t_\alpha<t_\beta \leq 1$, 得
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t_\beta)-T_1(x,y)(t_\alpha)\right|\\
+&=& \bigg|-a\sum^{m}_{k=1}a_k\int_{0}^{t_k}
+\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
++\int_{0}^{t_m}\frac{(t_\beta-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\\
+&&+a\sum^{m}_{k=1}a_k\int_{0}^{t_k}\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
+-\int_{0}^{t_m}\frac{(t_\alpha-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\\
+&&+\int^{t_\beta}_{t_m}\frac{(t_\beta-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
+-\int^{t_\alpha}_{t_m}\frac{(t_\alpha-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\bigg|\\
+&\leq&
+\int^{t_m}_{0}\frac{(t_\beta-s)^{\gamma-1}-(t_\alpha-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds\\
+&&+\int^{t_\alpha}_{t_m}\frac{(t_\beta-s)^{\gamma-1}-(t_\alpha-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds\\
+&&+\int^{t_\beta}_{t_\alpha}\frac{(t_\beta-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds\\
+&\leq& \frac{M_1}{\Gamma(\gamma)}\bigg[
+\int^{t_m}_{0}\left|(t_\beta-s)^{\gamma-1}-(t_\alpha-s)^{\gamma-1}\right|ds
++\int^{t_\alpha}_{t_m}\left|(t_\beta-s)^{\gamma-1}-(t_\alpha-s)^{\gamma-1}\right|ds\\
+&&+\int^{t_\beta}_{t_\alpha}(t_\beta-s)^{\gamma-1}ds\bigg]\\
+&\leq&\frac{5M_1}{\Gamma(\gamma+1)}(t_\beta-t_\alpha)^\gamma,
+\end{eqnarray*}
+当$t_\beta\rightarrow t_\alpha$时, 显然
+$\left|T_1(x,y)(t_\beta)-T_1(x,y)(t_\alpha)\right|\rightarrow
+0$也成立.
+
+因此, $T_1(\tilde{U})\subset C[0,1]\times C[0,1]$. 类似地, 可证明: $T_2(\tilde{U})\subset C[0,1]\times C[0,1]$.
+
+下证$T(\tilde{U}) \subset \tilde{U}$.
+
+对任意$t\in[0,t_m]$, 有
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t)\right|\nonumber\\
+&\leq&
+|a|\sum^{m}_{k=1}|a_k|\int^{t_m}_{0}\frac{(t_m-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds
++\int^{t_m}_{0}\frac{(t_m-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds\nonumber\\
+&\leq&\frac{A_1}{\Gamma(\gamma)}\int_{0}^{t_m}(t_m-s)^{\gamma-1}\left|f(s,x(s),y(s))-f(s,0,0)+f(s,0,0)\right|ds\nonumber\\
+&\leq&\frac{A_1}{\Gamma(\gamma)}\int_{0}^{t_m}(t_m-s)^{\gamma-1}\left[b_1|x(s)|_{C[0,t_m]}+\tilde{b}_1|y(s)|_{C[0,t_m]}+f_{\max}\right]ds\nonumber\\
+&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max},
+\end{eqnarray*}
+因此,
+\begin{eqnarray}\label{P1-T1-s1-1}
+\|T_1(x,y)\|_{C[0,t_m]}&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max}.
+\end{eqnarray}
+
+对任意$t\in[t_m,1]$, 有
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t)\right|\nonumber\\
+&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max}
++\int^{t}_{t_m}\frac{(t-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))\right|ds\nonumber\\
+&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max}\nonumber\\
+&&+\frac{1}{\Gamma(\gamma)}\int^{t}_{t_m}(t-s)^{\gamma-1}\left(c_1|x(s)|+\tilde{c}_1|y(s)|+f_{\max}\right)ds\nonumber\\
+&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max}\nonumber\\
+&&+\frac{c_1}{\Gamma(\gamma)}\int^{t}_{t_m}(t-s)^{\gamma-1}|x(s)|e^{-\theta(s-t_m)^\gamma}e^{\theta(s-t_m)^\gamma}ds \nonumber\\
+&&+\frac{\tilde{c}_1}{\Gamma(\gamma)}\int^{t}_{t_m}(t-s)^{\gamma-1}|y(s)|e^{-\theta(s-t_m)^\gamma}
+e^{\theta(s-t_m)^\gamma}ds
++\frac{1}{\Gamma(\gamma)}\int^{t}_{t_m}(t-s)^{\gamma-1}f_{\max}ds\nonumber\\
+&\leq&b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+A_1lf_{\max}\nonumber\\
+&&+\frac{2c_1}{\Gamma(\gamma+1) [\theta]^\gamma}e^{\theta
+(t-t_m)^\gamma}\|x\|_{C[t_m,1]}+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}e^{\theta
+(t-t_m)^\gamma}\|y\|_{C[t_m,1]}+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)} f_{\max},\nonumber\\
+\end{eqnarray*}
+此处用到引理\ref{int-lemma}的结论, 即对任意$t \in[t_m,1]$, 有
+\begin{eqnarray*}
+\int^{t}_{t_m}(t-s)^{\gamma-1}e^{\theta(s-t_m)^\gamma}ds
+&\leq&\frac{2e^{\theta(t-t_m)^\gamma}}{\gamma[\theta]^\gamma}.
+\end{eqnarray*}
+
+两边同时除以$e^{\theta(t-t_m)^\gamma}$, 并取最大值, 得到
+\begin{eqnarray}\label{P1-T1-s1-2}
+\|T_1(x,y)\|_{C[t_m,1]} &\leq& b_1lA_1\|x\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y\|_{C[0,t_m]}+\left(A_1l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)f_{\max}\nonumber\\
+&&+\frac{2c_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\|x\|_{C[t_m,1]}+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\|y\|_{C[t_m,1]}.
+\end{eqnarray}
+
+结合(\ref{P1-T1-s1-1})和(\ref{P1-T1-s1-2}), 得
+\begin{eqnarray}\label{P1-T1-bod}
+\|T_1(x,y)\|_C\leq\left(b_1lA_1+\frac{2c_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\right)\|x\|_C
++\left(\tilde{b}_1lA_1+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\right)\|y\|_C +\tilde{M}_1,\nonumber\\
+\end{eqnarray}
+其中,
+\[
+\tilde{M}_1=\max\left\{A_1lf_{\max},
+\left(A_1l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)f_{\max}\right\}=
+\left(A_1l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)f_{\max}.
+\]
+
+类似地, 可得
+\begin{eqnarray}\label{P1-T2-bod}
+\|T_2(x,y)\|_C \leq \left(B_1lA_2+\frac{2C_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\right)\|x\|_C
++\left(\tilde{B}_1lA_2+\frac{2\tilde{C}_1}{\Gamma(\gamma+1)
+[\theta]^\gamma}\right)\|y\|_C +\tilde{M}_2,\nonumber\\
+\end{eqnarray}
+其中,
+\[
+\tilde{M}_2=\max\left\{A_2lg_{\max},
+\left(A_2l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)g_{\max}\right\}=
+\left(A_2l+\frac{(1-t_m)^{\gamma}}{\Gamma(\gamma+1)}\right)g_{\max}.
+\]
+
+结合(\ref{P1-T1-bod})和(\ref{P1-T2-bod}), 得到
+\begin{eqnarray*}
+\left[
+\begin{array}{l}
+\|T_1(x,y)\|_C\\
+\|T_2(x,y)\|_C
+\end{array}
+\right] \leq  \left[
+\begin{array}{l}
+\tilde{R}_1\\
+\tilde{R}_2
+\end{array}
+ \right],
+\end{eqnarray*}
+满足$T(\tilde{U})\subset \tilde{U}$.
+
+
+第二步: 证明$T$是压缩映射.
+
+
+对任意的$(x,y),(\bar{x},\bar{y}) \in \tilde{U}$, 任意$t\in[0,t_m]$, 依据$[H1]$,$[H2]$,$[H3]$, 可得,
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t)-T_1(\bar{x},\bar{y})(t)\right|\\
+&=& \bigg|-a\sum^{m}_{k=1}a_k\int_{0}^{t_k}
+\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds
++\int_{0}^{t}\frac{(t-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,x(s),y(s))ds\\
+&&+a\sum^{m}_{k=1}a_k\int_{0}^{t_k}
+\frac{(t_k-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,\bar{x}(s),\bar{y}(s))ds
+-\int_{0}^{t}\frac{(t-s)^{\gamma-1}}{\Gamma(\gamma)}f(s,\bar{x}(s),\bar{y}(s))ds\bigg|\\
+&\leq&
+|a|\sum^{m}_{k=1}|a_k|\int^{t_m}_{0}\frac{(t_m-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))
+-f(s,\bar{x}(s),\bar{y}(s))\right|ds\\
+&&+\int^{t_m}_{0}\frac{(t_m-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))
+-f(s,\bar{x}(s),\bar{y}(s))\right|ds\\
+&\leq&\frac{A_1}{\Gamma(\gamma)}\int^{t_m}_{0}(t_m-s)^{\gamma-1}\left[b_1|x(s)-\bar{x}(s)|_{C[0,t_m]}+\tilde{b}_1|y(s)-\bar{y}(s)|_{C[0,t_m]}\right]ds\\
+&\leq&b_1lA_1\|x-\bar{x}\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y-\bar{y}\|_{C[0,t_m]},
+\end{eqnarray*}
+因此,
+\begin{eqnarray}\label{P1-T1-s2-1}
+\|T_1(x,y)-T_1(\bar{x},\bar{y})\|_{C[0,t_m]}\leq
+b_1lA_1\|x-\bar{x}\|_{C[0,t_m]}
++\tilde{b}_1lA_1\|y-\bar{y}\|_{C[0,t_m]}.
+\end{eqnarray}
+
+对任意$t \in [t_m,1]$, 任意$\theta>0$, 可得
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t)-T_1(\bar{x},\bar{y})(t)\right|\\
+&\leq&b_1lA_1\|x-\bar{x}\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y-\bar{y}\|_{C[0,t_m]}\\
+&&+\int^{t}_{t_m}\frac{(t-s)^{\gamma-1}}{\Gamma(\gamma)}\left|f(s,x(s),y(s))
+-f(s,\bar{x}(s),\bar{y}(s))\right|ds,
+\end{eqnarray*}
+注意到
+\begin{eqnarray*}
+&&\int^{t}_{t_m}(t-s)^{\gamma-1}\left|f(s,x(s),y(s))-f(s,\bar{x}(s),\bar{y}(s))\right|ds\\
+&\leq&c_1\int^{t}_{t_m}(t-s)^{\gamma-1}\left|x(s)-\bar{x}(s)\right|e^{-\theta(s-t_m)^\gamma}e^{\theta(s-t_m)^\gamma}ds\\
+&&+\tilde{c}_1\int^{t}_{t_m}(t-s)^{\gamma-1}\left|y(s)-\bar{y}(s)\right|e^{-\theta(s-t_m)^\gamma}e^{\theta(s-t_m)^\gamma}ds\\
+&\leq&\frac{2c_1e^{\theta(t-t_m)^\gamma}}{\gamma[\theta]^\gamma}\|x-\bar{x}\|_{C[t_m,1]}
++\frac{2\tilde{c}_1e^{\theta(t-t_m)^\gamma}}{\gamma[\theta]^\gamma}\|y-\bar{y}\|_{C[t_m,1]},
+\end{eqnarray*}
+此处用到引理\ref{int-lemma}的结论, 即对任意$t \in[t_m,1]$, 有
+\begin{eqnarray*}
+\int^{t}_{t_m}(t-s)^{\gamma-1}e^{\theta(s-t_m)^\gamma}ds
+&\leq&\frac{2e^{\theta(t-t_m)^\gamma}}{\gamma[\theta]^\gamma}.
+\end{eqnarray*}
+
+
+因此,
+\begin{eqnarray*}
+&&\left|T_1(x,y)(t)-T_1(\bar{x},\bar{y})(t)\right|\\
+&\leq&b_1lA_1\|x-\bar{x}\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y-\bar{y}\|_{C[0,t_m]}\\
+&&+\frac{2c_1}{\Gamma(\gamma+1)[\theta]^\gamma}e^{\theta(t-t_m)^\gamma}\|x-\bar{x}\|_{C[t_m,1]}
++\frac{2\tilde{c}_1}{\Gamma(\gamma+1)[\theta]^\gamma}e^{\theta(t-t_m)^\gamma}\|y-\bar{y}\|_{C[t_m,1]}.
+\end{eqnarray*}
+进一步,
+\begin{eqnarray}\label{P1-T1-s2-2}
+&&\|T_1(x,y)-T_1(\bar{x},\bar{y})\|_{C[t_m,1]}\nonumber\\
+&\leq&b_1lA_1\|x-\bar{x}\|_{C[0,t_m]}+\tilde{b}_1lA_1\|y-\bar{y}\|_{C[0,t_m]}\nonumber\\
+&&+\frac{2c_1}{\Gamma(\gamma+1)[\theta]^\gamma}\|x-\bar{x}\|_{C[t_m,1]}+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)[\theta]^\gamma}\|y-\bar{y}\|_{C[t_m,1]}.
+\end{eqnarray}
+结合不等式(\ref{P1-T1-s2-1})和(\ref{P1-T1-s2-2}), 得到,
+\begin{eqnarray}\label{P1-T1-con}
+&&\|T_1(x,y)-T_1(\bar{x},\bar{y})\|_C\nonumber\\
+&\leq&\left(b_1lA_1+\frac{2c_1}{\Gamma(\gamma+1)[\theta]^\gamma}\right)\|x-\bar{x}\|_C
++\left(\tilde{b}_1lA_1+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)[\theta]^\gamma}\right)\|y-\bar{y}\|_C.
+\end{eqnarray}
+
+类似地,
+\begin{eqnarray}\label{P1-T2-con}
+&&\|T_2(x,y)-T_2(\bar{x},\bar{y})\|_C\nonumber\\
+&\leq&\left(B_1lA_2+\frac{2C_1}{\Gamma(\gamma+1)[\theta]^\gamma}\right)\|x-\bar{x}\|_C
++\left(\tilde{B}_1lA_2+\frac{2\tilde{C}_1}{\Gamma(\gamma+1)[\theta]^\gamma}\right)\|y-\bar{y}\|_C.\nonumber\\
+\end{eqnarray}
+
+由不等式(\ref{P1-T1-con}), (\ref{P1-T2-con}), 可得
+\[
+\|T(u)-T(\bar{u})\|_C\leq M_\theta\|u-\bar{u}\|_C,
+\]
+其中,
+\begin{eqnarray*}
+M_\theta=  \left[
+\begin{array}{l}
+b_1 l A_1+\frac{2c_1}{\Gamma(\gamma+1)[\theta]^\gamma} ~~~~~\tilde{b}_1 l A_1+\frac{2\tilde{c}_1}{\Gamma(\gamma+1)[\theta]^\gamma}\\
+B_1 l A_2+\frac{2C_1}{\Gamma(\gamma+1)[\theta]^\gamma} ~~~\tilde{B}_1 l
+A_2+\frac{2\tilde{C}_1}{\Gamma(\gamma+1)[\theta]^\gamma}
+\end{array}
+\right].
+\end{eqnarray*}
+
+根据定理\ref{perov},
+可知系统(\ref{sy.1})在$\tilde{U}$上有唯一的不动点.
+这也就意味着系统(\ref{sy.1})在$\tilde{U}$上有唯一解.
+\end{proof}
+
+
+为了验证定理\ref{th-p-1}, 考虑如下例子:
+\begin{example}
+考虑分数阶系统:
+\begin{equation}\label{exam-p-1}
+\left\{
+\begin{array}{l}
+^{C}D_{0,t}^{\frac{2}{3}}x(t)=\frac{1}{5}\frac{y^2(t)}{1+y^2(t)}\sin(2x(t))+1=:f(t,x(t),y(t)),~t\in [0,1],\\
+^{C}D_{0,t}^{\frac{2}{3}}y(t)=\frac{1}{4}\frac{y^2(t)}{1+y^2(t)}\cos(2x(t))+2=:g(t,x(t),y(t)),\\
+x(0)+2x(\frac{1}{8})=0,\\
+y(0)+3y(\frac{1}{8})=0.
+\end{array}
+\right.
+\end{equation}
+
+显然,
+\begin{eqnarray*}
+\sup_{x,y \in \mathbb{R}}\left|\frac{\partial f(x,y)}{\partial
+x}\right|\leq \frac{2}{5}:=b_1, ~~\sup_{x,y \in
+\mathbb{R}}\left|\frac{\partial f(x,y)}{\partial y}\right|\leq
+\frac{3\sqrt{3}}{40}:=\tilde{b}_1,\\
+\sup_{x,y \in \mathbb{R}}\left|\frac{\partial g(x,y)}{\partial
+x}\right|\leq \frac{1}{2}:=B_1,  ~~\sup_{x,y \in
+\mathbb{R}}\left|\frac{\partial g(x,y)}{\partial y}\right|\leq
+\frac{3\sqrt{3}}{32}:=\tilde{B}_1,
+\end{eqnarray*}
+从而有
+\begin{eqnarray*}
+M_{0}
+ &=&\left[
+\begin{array}{l}
+\frac{1}{6\Gamma(5/3)}
+~~~~\frac{\sqrt{3}}{32\Gamma(5/3)}\\
+\frac{7}{32\Gamma(5/3)} ~~~\frac{21\sqrt{3}}{512\Gamma(5/3)}
+\end{array}
+\right],
+\end{eqnarray*}
+关于矩阵$M_{0}$, 我们知道其特征值$\lambda_1=0$和$\lambda_2=0.2633$.
+因此, 根据引理\ref{lem-1}可知$M_{0}$是收敛于零的, 同时, 依据引理\ref{lem-2}当取足够大的$\theta>0$时, $M_\theta$ 收敛于零也是成立的.
+
+至此, 定理\ref{th-p-1}中的假设条件都满足,
+则系统(\ref{exam-p-1})有唯一解.
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第2章结束
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第3章
+\chapter{表格图形}
+\label{chap:tabfig}
+
+\section{表格与矩阵}
+
+
+
+
+
+
+
+\begin{table}[htbp!]
+  \centering
+\caption{中间有一栏过长的表格}\label{tab1}
+\begin{tabular}{|l|l|c|r|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+
+ 1 & the first line & 3 & 4\\
+\hline
+ 2 & \tabincell{c}{haha\\ heihei\\zeze} & 3 & 4\\
+\hline
+  1 &2 & 3 & 4\\
+  \hline
+  21 &2 & 3 & 4\\
+   \hline
+ 31 &2 & 3 & 4\\
+  \hline
+  41 &2 & 3 & 4\\
+  \hline
+\end{tabular}
+
+\end{table}
+
+\begin{remark}
+  使用方法：将过长的那个格的文字（haha heihei zeze），使用：
+%  \begin{lstlisting}
+%\tabincell{c}{haha\\ heihei\\zeze}
+%\end{lstlisting}
+  括起来，并在其中适当增加换行符号。
+
+  如果在其他模板上，编译不通过，可在
+  \begin{verbatim}
+  \begin{document} （一般位于tex文件的前20行）
+\end{verbatim}
+的上一行，插入：
+  \begin{verbatim}
+  \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+ \end{verbatim}
+\end{remark}
+
+\rule{0.7\textwidth}{0.5mm}
+
+\begin{table}[htbp!]
+  \centering
+\caption{表格名称}\label{tab1}
+\begin{tabular}{|l|l|c|r|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  1 &2 & 3 & 4\\
+  \hline
+  21 &2 & 3 & 4\\
+   \hline
+ 31 &2 & 3 & 4\\
+  \hline
+  41 &2 & 3 & 4\\
+  \hline
+\end{tabular}
+
+\end{table}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+\begin{eqnarray*}
+\left(
+  \begin{array}{cccc}
+    1 & 1 & 1 & 1 \\
+    2 & 2 & 2 & 2 \\
+    3 & 3 & 3 & 3 \\
+    4 & 4 & 4 & 4 \\
+  \end{array}
+\right)
+\end{eqnarray*}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文
+$\left(
+  \begin{array}{cccc}
+    1 & 1 & 1 & 1 \\
+    2 & 2 & 2 & 2 \\
+    3 & 3 & 3 & 3 \\
+    4 & 4 & 4 & 4 \\
+  \end{array}
+\right)
+$
+正文正文正文正文正文正文正文。
+
+
+
+\section{图形}
+
+\subsection{浮动图形}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.2\textwidth]{amss}
+ \caption{中科院数学与系统科学研究院院徽（在页面中间）}
+ \label{fig:amss1}
+\end{figure}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=0.2\textwidth]{amss}
+ \caption{中科院数学与系统科学研究院院徽（在页面上方）}
+ \label{fig:amss2}
+\end{figure}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+\begin{figure}[b]
+ \centering
+ \includegraphics[width=0.2\textwidth]{amss}
+ \caption{中科院数学与系统科学研究院院徽（在页面下方）}
+ \label{fig:amss3}
+\end{figure}
+
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\textwidth]{gzdx1}
+ \caption{贵大校门（感谢“贵州大学”官方微博提供图片！）}
+ \label{fig:amss4}
+\end{figure}
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+
+
+
+
+
+%\begin{wrapfigure}[L]{3cm}
+%  \includegraphics[width=3cm,clip]{amss.pdf}\\
+%  \caption{图文混排}\label{fig:amss5}
+%\end{figure}
+%\end{wrapfigure}
+%\mbox{}图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排图文混排。
+%
+
+
+
+正文正文正文正文正文正文正文正文正文正文正文正文正文。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第3章结束
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第4章
+\chapter{常见问题}
+\label{chap:faq}
+
+
+\section{环境命令}
+
+\begin{remark}
+  我是“注释”。(remark)
+\end{remark}
+
+\begin{rem}
+  “注释”也可以这么写。(rem)
+\end{rem}
+
+
+\begin{algo}
+  我是算法。(algo)
+\end{algo}
+
+\begin{lemma}
+  this is lemma.(lemma)
+\end{lemma}
+
+\begin{lem}
+  this is lemma, too.(lem)
+\end{lem}
+
+\begin{conj}
+  俺是猜想。(conj)
+\end{conj}
+
+\begin{definition}
+  这是定义。(definition)
+\end{definition}
+\begin{defn}
+  定义(defn)
+\end{defn}
+
+除此之外，prop或proposition：命题；cor或corollary：推论；conj：猜想；exmp或\linebreak[4]example：例题；case：情形；FAQ:问题；ANS：回答；
+
+为了方便，我们采用了对于部分常用的标签，定义了全称和缩写两种方式。方便大家将小论文中的内容直接粘贴进来。
+
+
+
+
+\section{脚注}
+
+
+
+\begin{FAQ}
+如果在章节标题中加入注脚，则不仅会出现在本章首页的页脚，也会出现在目录的页脚，不知是否能够让其不要出现在目录的页脚中。
+\end{FAQ}
+
+\begin{ANS}
+可以使用如下的命令来定义章节的标题
+\begin{verbatim}
+\chapter[出现在目录和页眉的标题]{出现在正文的标题\footnote{这个不会出现在目录中。}}
+\end{verbatim}
+section、~subsection 等命令也有类似的用法。
+\end{ANS}
+
+
+\section{强制换行}
+
+如下例所示：
+
+如果$(x,y)$在区间$[0,1]$上满足等式$^{c}D_{0,t}^{\gamma}x(t)=f(t,x(t),y(t))$和$^{c}D_{0,t}^{\gamma}y(t)=g(t,x(t),y(t))$\footnote{此处超过边界，需要在中间强制换行，具体方法如下段所示：在强制换行处添加$\backslash$linebreak[4]}，同时，满足条件$x(0)+\sum^{m}_{k=1}a_k{x(t_k)}=0$和$y(0)+\sum^{m}_{k=1}\tilde{a}_k{x(t_k)}=0$，则称$(x,y)\in C[0,1]\times C[0,1]$是系统(\ref{sy.1})的一个解。
+
+
+如果$(x,y)$在区间$[0,1]$上满足等式$^{c}D_{0,t}^{\gamma}x(t)=f(t,x(t),y(t))$和$^{c}D_{0,t}^{\gamma}y(t)=g(t,x(t),\linebreak[4]y(t))$，同时，满足条件$x(0)+\sum^{m}_{k=1}a_k{x(t_k)}=0$和$y(0)+\sum^{m}_{k=1}\tilde{a}_k{x(t_k)}=0$，则称$(x,y)\in C[0,1]\times C[0,1]$是系统(\ref{sy.1})的一个解。
+
+
+
+\section{公式内插入汉字}
+
+公式环境内的汉字可能显示不正常，例如：
+\[
+中文中文a=0.
+\]
+使用$\backslash$ mbox\{~~\}, 可以解决此事。例如：
+\[
+\mbox{中文中文}a=0.
+\]
+
+\section{书签乱码(图书馆查重)}\label{shuqianluanma}
+
+\textbf{\textcolor[rgb]{0.00,0.00,1.00}{用于图书馆查重的版本，也请按照如下方法操作一遍！}}
+
+pdf书签乱码，或者图书馆查重的时候发现无法读取PDF中文字的解决办法：
+
+\begin{enumerate}
+  \item 用PDFLATEX编译器编译一遍；
+  \item 点击winedt（你的tex文本编辑器）的菜单accessories$\backslash$command prompt；
+  \item 在打开的窗口中输入 " gbk2uni 文件名.out"，回车；（不含双引号，将“文件名”替换成你的tex文件的名称；如果你未对文件名称做过修改，那么你应该输入的命令是： " gbk2uni template.out "；盲评版本：“ gbk2uni 论文盲评.out ”）。
+
+      注 释：如果你的tex文件名没有改变（即template.tex），你可以运行“书签乱码（使用方法见说明第4 章）.bat” 这个脚本文件代替第2-3步。
+   \item 再一次使用PDFLATEX编译器编译。
+\end{enumerate}
+
+
+
+\section{特殊的公式}
+\subsection{长等号或长箭头}
+\begin{FAQ}
+  要输入长的（自适应长度）的等号或箭头，并在其上下写文字，该如何弄？
+\end{FAQ}
+
+\begin{ANS}
+
+
+如图所示：
+
+\begin{eqnarray*}
+1\xlongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+2\xlongequal[aaa----]{bbb---}b.~~~~~~~~~~
+3\xLongleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+4\xLongleftrightarrow[aaa----]{bbb---}b.\\
+5\xLeftrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+6\xlongleftrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+7\xLongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+8\xleftrightarrow[aaa----]{bbb---}b.\\
+9\xlongleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+a\xleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+b\xrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+c\xlongleftarrow[aaa----]{bbb---}b.\\
+d\xlongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+e\xleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+f\xrightarrow[aaa----]{bbb---}b.\\
+\end{eqnarray*}
+
+代码如下：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+1\xlongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+2\xlongequal[aaa----]{bbb---}b.~~~~~~~~~~
+3\xLongleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+4\xLongleftrightarrow[aaa----]{bbb---}b.\\
+5\xLeftrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+6\xlongleftrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+7\xLongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+8\xleftrightarrow[aaa----]{bbb---}b.\\
+9\xlongleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+a\xleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+b\xrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+c\xlongleftarrow[aaa----]{bbb---}b.\\
+d\xlongrightarrow[aaa----]{bbb---}b.~~~~~~~~~~
+e\xleftarrow[aaa----]{bbb---}b.~~~~~~~~~~
+f\xrightarrow[aaa----]{bbb---}b.\\
+\end{lstlisting}
+
+\end{ANS}
+
+
+
+
+
+
+\subsection{两行的下标}
+例如类似这样的公式：$  \sum\limits_{\substack{k_0,k_1,\dots>0\\   k_0+k_1+\dots=n}}   F(k_i)$。
+可以使用如下的代码：
+\begin{verbatim}
+$  \sum\limits_{\substack{k_0,k_1,\dots>0\\   k_0+k_1+\dots=n}}   F(k_i)$
+\end{verbatim}
+
+
+\section{插入一段C语言代码}
+通常我们可以使用抄录环境verbatim和verbatim*。对于JAVA, C, C++, Matlab等语言，可以采用lstlisting环境。
+\subsection{比较简易的}
+\begin{lstlisting}[ language=C]
+int main(int argc, char ** argv)
+{
+
+printf("Hello world! \n");
+
+return 0;
+}
+\end{lstlisting}
+
+\subsection{更加精美}
+%\clearpage
+\begin{lstlisting}[language={[ANSI]C},numbers=left, numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+int main(int argc, char ** argv)
+{
+
+printf("Hello world! \n");
+
+return 0;
+}
+\end{lstlisting}
+
+注释: $\backslash$begin\{lstlisting\}的上一行可以增加$\backslash$clearpage，用于保证代码框不跨页。 代码过多导致跨页可能会导致tex编译失败。
+
+\subsection{其他语言}
+
+如果是matlab代码，可将
+\begin{verbatim}
+\begin{lstlisting}[ language=C]
+\end{verbatim}
+
+更改为
+\begin{verbatim}
+\begin{lstlisting}[ language=Matlab]
+\end{verbatim}
+
+如果lstlisting环境存在问题，可以换用verbatim环境：
+
+\begin{verbatim}
+\ begin{verbatim}
+......
+\ end{verbatim}
+\end{verbatim}
+
+
+\begin{rem}
+如果还有第5，6，7$\cdots$章，请在此行之前插入:
+
+$\backslash$chapter\{第五章标题\}$\backslash$label\{chap:章节标签\}
+\end{rem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第4章结束
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 附录
+  \appendix
+
+\chapter{贵州大学学位论文撰写要求}
+\label{chap:requires2}
+
+\textbf{说明：附录\ref{chap:requires2}的内容均来自于贵州大学研究生院网站，如有疑问和冲突，请以研究生院最新规定为准！}
+
+各学院、各学位点、毕业研究生：
+
+根据国内外学位论文格式发展状况以及省教育厅对优秀毕业论文的要求，现规定从2005届开始，我校硕士、博士学位论文统一封面、格式，具体要求如下：
+
+\begin{enumerate}
+  \item 	统一采用A4纸排版、打印（复印）；
+  \item 	封面格式统一，采用格式见附录一（论文编号为学生证号）；
+  \item 	封面颜色作如下规定：\\
+  农学学位 —— 深绿色\\
+理学学位 —— 浅绿色\\
+工学学位 —— 深蓝色\\
+法学学位 —— 橘黄色\\
+文学、艺术学位 —— 深红色\\
+管理学位 —— 淡黄色\\
+经济学位 —— 浅灰色\\
+哲学学位 —— 白色\\
+  \item 学位论文详细摘要（大摘要）格式，参照附录二；
+  \item 	学位论文格式参照附录三;
+\end{enumerate}
+
+\begin{flushright}
+ 贵州大学研究生院\\
+                     2004年12月8日
+
+\end{flushright}
+
+\newpage
+
+\section{附录一:  硕士学位论文封面格式(略)}
+\section{附录二 : 大摘要封面及格式（略）}
+\section{附录三: 贵州大学研究生学位论文格式}
+一、封面
+
+具体要求见附录一。
+
+二、目录
+
+三、中文摘要
+
+字数要求：300-600字；并列出关键词3-7个；注明图书分类号；博士论文字数要求：1500-3000字。
+
+摘要内容要突出论文在理论、方法、技术、工艺、产品性能方面的创新或改进。
+
+四、英文摘要
+
+内容与中文摘要相对应。
+
+五、论文主体
+
+前言（选题背景、依据及意义）
+
+正文
+
+结论与讨论
+
+正文用5号或小4号字体，标题字号酌情增大。论文主体部分具体编排形式视学科专业不同可有一定差异。
+
+六、致谢
+
+七、主要参考文献
+
+期刊格式: 序号. 著者[全部作者]. 题目. 期刊名, 发表年, 卷(期):页码.
+
+图书格式: 序号. 著者[全部作者]. 书名. 出版地: 出版社. 出版年, 页码.
+
+为了尊重作者的知识产权，论文参考文献要求列出全部作者。
+
+\kaishu{参考文献按一定顺序排列：先中文后英文,中文按著者姓氏笔画顺序，英文按著者首字母顺序。参考文献在论文中应有所引用，并在引用处标明(著者, 发表或出版年；如果著者超过2位，可采用第一著者后加等字，发表或出版年表示；硕士论文参考文献不少于35篇，博士论文要求不少于100篇)。}
+\songti
+
+八、附录[包括在校期间在省级以上刊物或学术会议上公开发表的论文目录、参加科研项目]。
+
+九、图版
+
+十、封底（原创性声明和关于学位论文使用授权的声明）
+
+说明:
+
+（1）学位论文纸张大小:A4纸，硕士论文字数3-5万字，博士论文不少于6万字。
+
+（2）学位论文各部分必须严格按如上顺序编排，凡不符合要求者，不能参加论文答辩。
+
+（3）交学位论文的同时，请附大摘要（硕士论文中文字数3000$\sim$5000字,具体格式见附录二；博士论文1$\sim$2万字）一份及磁盘。
+
+\chapter{中国科学院研究生院学位论文撰写要求}
+\label{chap:requires}
+
+\textbf{国科大的学位论文要求附最后，仅供参考！}
+
+学位论文是为申请学位而撰写的学术论文，是评判学位申请者学术水平的主要依据，
+也是学位申请者获得学位的必要条件之一。为规范和统一我院研究生学位论文的写作，
+根据《中华人民共和国学位条例暂行实施办法》的有关规定，提出以下要求：
+
+\section{基本要求}
+
+学位论文必须是一篇（或由一组论文组成的一篇）系统的、完整的学术论文。
+学位论文应是学位申请者本人在导师的指导下独立完成的研究成果，
+不得抄袭和剽窃他人成果。学位论文的学术观点必须明确，且逻辑严谨，文字通畅。
+
+\subsection{硕士学位论文}
+
+硕士学位论文要注意在基础学科或应用学科中选择有价值的课题，
+对所研究的课题有新的见解，并能表明作者在本门学科上掌握了坚实的基础理论和
+系统的专门知识，具有从事科学研究工作或独立担负专门技术工作的能力。
+
+硕士学位论文工作一般在硕士生完成培养计划所规定的课程学习后开始，
+应包括文献阅读、开题报告、拟定并实施工作计划、科研调查、实验研究、理论分析
+和文字总结等工作环节。硕士学位论文必须有一定的工作量。在论文题目确定后，
+用于论文工作的时间一般不得少于一年半。
+
+\subsection{博士学位论文}
+
+博士学位论文要选择在国际上属于学科前沿的课题或对国家经济建设和社会发展
+有重要意义的课题，要突出论文在科学和专门技术上的创新性和先进性，
+并能表明作者在本门学科上掌握了坚实宽广的基础理论和系统深入的专门知识，
+具有独立从事科学研究工作的能力。
+
+博士学位论文工作是培养博士学位研究生最重要的环节，其工作时间一般不应少于两年。
+博士研究生入学后，要在导师指导下确定科研方向，收集资料，阅读文献，
+进行调查研究，选择研究课题。一般在第二学期，最迟在第三学期通过开题报告
+并制定论文工作计划，之后根据论文工作计划分阶段报告科研和论文工作进展情况。
+
+\section{学位论文的组成部分和排列顺序}
+
+学位论文一般由以下几个部分组成：封面、论文摘要、论文目录、正文、参考文献、
+发表文章目录、致谢等。
+
+\subsection{封面}
+
+根据原国家标准局《科学技术报告、学位论文和学术论文的编写格式》
+（国家标准GB7713-87）的封面要求，特规定中国科学院研究生院研究生学位论文的
+封面格式（见样张1和样张2），并提出以下具体要求：
+
+\subsubsection{分类号}
+
+必须在封面左上角注明分类号。一般应注明《中国图书资料分类法》的类号，
+同时注明《国际十进分类法UDC》的类号。
+
+\subsubsection{编号}
+
+各培养单位自定。
+
+\subsubsection{密级}
+
+论文必须按国家规定的保密条例在右上角注明密级（公开型论文可不注明密级）。
+
+\subsubsection{论文题目}
+
+学位论文题目应当简明扼要地概括和反映出论文的核心内容，一般不宜超过20个字，
+必要时可加副标题。
+
+\subsubsection{指导教师}
+
+指导教师必须是被批准上岗的指导教师。
+
+\subsubsection{申请学位级别}
+
+填硕士学位或博士学位。
+
+\subsubsection{学科、专业名称}
+
+按国家颁布的学科、专业目录中的名称填写。
+
+\subsubsection{论文提交日期和论文答辩日期}
+
+按实际提交和答辩日期填写。
+
+\subsubsection{培养单位}
+
+填写培养单位全称。
+
+\subsubsection{学位授予单位}
+
+填写``中国科学院研究生院''。
+
+\subsection{论文摘要}
+
+论文摘要应概括地反映出本论文的主要内容，主要说明本论文的研究目的、内容、
+方法、成果和结论。要突出本论文的创造性成果或新见解，不要与引言相混淆。
+中文摘要力求语言精炼准确，字数在500字左右。英文摘要内容要与中文摘要内容一致。
+并在英文题目下面第一行写研究生姓名。专业名称用括号括起后，置于姓名之后。
+研究生姓名下面的一行写导师姓名，格式为：Directed by......。
+无论中英文摘要都必须在摘要页的最下方另起一行，注明本文的关键词（3～5个）。
+
+\subsection{论文目录}
+
+论文目录是论文的提纲，也是论文各章节组成部分的小标题。
+
+\subsection{正文}
+
+正文是学位论文的主体和核心部分，不同学科专业和不同的选题可以有不同的写作方式。
+正文一般包括以下几个方面：
+
+\subsubsection{引言}
+
+引言是学位论文主体部分的开端，要求言简意赅，不要与摘要雷同或成为摘要的注解。
+除了说明研究目的、方法、结果等外，还应评述国内外研究现状和相关领域中已有的研究成果；
+介绍本项研究工作前提和任务，理论依据和实验基础，涉及范围和预期结果以及该论文
+在已有的基础上所解决的问题。
+
+\subsubsection{各具体章节}
+
+\subsubsection{结论}
+
+结论是学位论文最终和总体的结论，是整篇论文的归宿。应精炼、准确、完整。
+着重阐述作者研究的创造性成果及其在本研究领域中的意义，还可进一步提出
+需要讨论的问题和建议。
+
+\subsection{参考文献}
+
+学位论文的撰写应本着严谨求实的科学态度，凡有引用他人成果之处，
+均应按论文中所引用的顺序列于文末。参考文献的著录均应符合国家有关标准
+（按照GB7714-87 《文后参考文献著录格式》执行）。
+
+1．文献是期刊时，书写格式为： 序号\ 作者. 文章题目. 期刊名,
+年份(期数):起止页码
+
+2．文献是图书时，书写格式为： 序号\ 作者. 书名. 版次. 出版地：出版单位，年份.
+起止页码
+
+\subsection{发表文章目录}
+
+指学位申请者在学期间在各类正式刊物上发表或已被接受的学术论文。
+
+\subsection{致谢}
+
+表达作者对完成论文和学业提供帮助的老师、同学、领导、同事及亲属的感激之情。
+
+\section{学位论文的书写、装订要求}
+
+（一）中国科学院研究生院研究生学位论文必须用中文书写
+
+1. 论文``题目''：黑体小三号
+
+2. 论文``章''：黑体四号
+
+3. 论文``节''：黑体小四号
+
+4. 正文：宋体小四号
+
+5. 为美观方便起见，要有页眉，奇数页注明每一章名称，偶数页注明论文题目。
+
+为了便于国际合作与交流，学位论文亦可有英文或其它文字的副本。
+
+（二）文中的图表、附注、参考文献、公式一律采用阿拉伯数字连续（或分章）编号。
+如图1，表1，附注：1，文献（1），公式（1）。图序及图名置于图的下方；
+表序及表名置于表的上方；论文中的公式编号用括弧括起来写在右边行末，其间不加虚线。
+
+（三）文中所用单位一律采用国务院发布的《中华人民共和国法定计量单位》，
+单位名称和符号的书写方式，应采用国际通用符号。
+
+（四）学位论文封面采用全院统一格式，封面用纸为150克花纹纸，博士学位论文
+封面颜色为红色，硕士学位论文封面颜色为蓝色（见样张博士学位论文封面、
+硕士学位论文封面）。
+
+（五）学位论文一律用A4打印纸装订。
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 附录结束
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{999}
+
+\bibitem{deng:01a}
+{邓建松,~彭冉冉,~陈长松}.
+\newblock {\em \LaTeXe{}~科技排版指南}.
+\newblock 科学出版社,~书号:~7-03-009239-2/TP.1516, 北京, 2001.
+
+\bibitem{wang:00a}
+王磊.
+\newblock {\em \LaTeXe{}~插图指南}.
+\newblock 2000.
+
+\bibitem{zhang:03a}
+张林波.
+\newblock {\em 关于新版~CCT~的说明}.
+\newblock 2003.
+
+\bibitem{lshort-cn}
+C\TeX{} 翻译小组.
+\newblock {\em lshort~中文版~3.20}.
+\newblock 2003.
+
+\bibitem{knuth86e}
+Donald~E. Knuth.
+\newblock {\em Computer Modern Typefaces}, volume~E of {\em Computers and
+  Typesetting}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1986.
+
+\bibitem{knuth86d}
+Donald~E. Knuth.
+\newblock {\em {METAFONT}: The Program}, volume~D of {\em Computers and
+  Typesetting}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1986.
+
+\bibitem{knuth86c}
+Donald~E. Knuth.
+\newblock {\em The {METAFONT}book}, volume~C of {\em Computers and
+  Typesetting}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1986.
+
+\bibitem{knuth86b}
+Donald~E. Knuth.
+\newblock {\em {TeX}: The Program}, volume~B of {\em Computers and
+  Typesetting}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1986.
+
+\bibitem{knuth86a}
+Donald~E. Knuth.
+\newblock {\em The {TeX}book}, volume~A of {\em Computers and Typesetting}.
+\newblock Addison-Wesley, Reading, Massachusetts, 1986.
+
+\bibitem{lamport85a}
+Leslie Lamport.
+\newblock {\em {LaTeX} --- A Document Preparation System: User's Guide and
+  Reference Manual}.
+\newblock Addison-Wesley, Reading, Massachusetts, 2nd edition, 1985.
+
+
+
+
+\bibitem{Lacroix} S.F. Lacroix, Trait\'{e} du calcul diff\'{e}rentiel et du calcul int\'{e}gral, Paris: Courcier, 1819.
+
+\bibitem{Das} S. Das, Functional fractional calculus, Springer Verlag, 2011.
+
+\bibitem{Hilfer} R. Hilfer, Applications of fractional calculus in physics, World Scientific, Singapore, 2000.
+
+\bibitem{Tarasov} V. E. Tarasov, Fractional dynamics: application of fractional calculus to dynamics of particles, fields and media, Springer, HEP, 2010.
+
+\bibitem{Diethelm} K. Diethelm, The analysis of fractional differential equations, Lecture Notes in Mathematics, 2010.
+
+\bibitem{Kilbas} A.A. Kilbas, H.M. Srivastava, J.J. Trujillo, Theory and applications of fractional differential equations, North-Holland Mathematics Studies, vol. 204, Elsevier Science B.V., Amsterdam, 2006.
+
+\bibitem{Lakshmikantham} V. Lakshmikantham, S. Leela, J.V. Devi, Theory of fractional dynamic systems, Cambridge Scientific Publishers, 2009.
+
+\bibitem{Miller} K.S. Miller, B. Ross, An introduction to the fractional calculus and differential equations, John Wiley \& Sons, New York, 1993.
+
+\bibitem{Podlubny} I. Podlubny, Fractional differential equations, Academic Press, San Diego, 1999.
+
+\bibitem{Monje} C.A. Monje, Y.Q. Chen, B.M. Vinagre, D. Xue, V. Feliu, Fractional-order systems and controls: Fundamentals and Applications, Advances in Industrial Control, Springer, 2010.
+
+\bibitem{Baleanu} D. Baleanu, J.A.T. Machado, A.C.J. Luo, Fractional dynamics and control, Springer, 2012.
+
+\bibitem{WangZhou-NA} J. Wang, Y. Zhou, Analysis of nonlinear fractional control systems in Banach spaces, Nonlinear Anal.: TMA, 74(2011), 5929-5942.
+
+\bibitem{Feckan-JOTA} M. Fe\v{c}kan, J. Wang, Y. Zhou, Controllability of fractional functional evolution equations of Sobolev type via characteristic solution operators, J. Optimiz. Theory App., 156(2013), 79-95.
+
+\bibitem{WangFZ-DPDE} J. Wang, M. Fe\v{c}kan, Y. Zhou, Controllability of Sobolev Type Fractional Evolution Systems, Dynam. Part. Differ. Eq., 11(2014), 71-87.
+
+\bibitem{WangFZ-JOTA} J. Wang, M. Fe\v{c}kan, Y. Zhou, Relaxed controls for nonlinear fractional impulsive evolution equations, J. Optimiz. Theory App., 156(2013), 13-32.
+
+\bibitem{WangMY-JMAA} J. Wang, M. Fe\v{c}kan, Y. Zhou, Ulam's type stability of impulsive ordinary differential equations, J. Math. Anal. App., 395(2012), 258-264.
+
+\bibitem{WangZ-AML} J. Wang, Y. Zhou, Mittag-Leffler-Ulam stabilities of fractional evolution equations, Appl. Math. Lett., 25(2012), 723-728.
+
+\bibitem{WangZ-Opt} J. Wang, Y. Zhang, Ulam-Hyers-Mittag-Leffler stability of fractional-order delay differential equations, Optimization, 63(2014), 1181-1190.
+
+\bibitem{WangL-AMC} J. Wang, X. Li, Ulam-Hyers stability of fractional Langevin equations, Appl. Math. Comput., 258(2015), 72-83.
+
+\bibitem{Feckan-CNSNS} M. Fe\v{c}kan, Y. Zhou, J. Wang, On the concept and existence of solution for impulsive fractional differential equations, Commun. Nonlinear Sci. Numer. Simulat., 17(2012), 3050-3060.
+
+\bibitem{AhmadS-NAH} B. Ahmad, S. Sivasundaram, Existence of solutions for impulsive integral boundary value problems of fractional order, Nonlinear Anal.: Hybri., 4(2010), 134-141.
+
+\bibitem{AhmadW-CMA} B. Ahmad, G. Wang, Impulsive anti-periodic boundary value problem for nonlinear differential equations of fractional order, Comput. Math. Appl., 59(2010), 1341-1349.
+
+\bibitem{TianB-CMA} Y. Tian, Z. Bai, Existence results for the three-point impulsive boundary value problem involving fractional differential equations, Comput. Math. Appl., 59(2010), 2601-2609.
+
+\bibitem{WangZS-NATMA} G. Wang, L. Zhang, G. Song, Systems of first order impulsive functional differential equations with deviating arguments and nonlinear boundary conditions, Nonlinear Anal.:TMA, 74(2011), 974-982.
+
+\bibitem{WangZM-CMA} J. Wang, Y. Zhou, M. Feckan, On recent developments in the theory of boundary value problems for impulsive fractional differential equations, Comput. Math. Appl., 64(2012), 3008-3020.
+
+\bibitem{Kosmatov-RM} N. Kosmatov, Initial value problems of fractional order with fractional impulsive conditions, Results Math., 63(2013), 1289-1310.
+
+\bibitem{RehmanE-AMC} M. Rehman, P.W. Eloe, Existence and uniqueness of solutions for impulsive fractional differential equations, Appl. Math. Comput., 224(2013), 422-431.
+
+\bibitem{LiuLS-AMH} Z. Liu, L. Lu, I. Szanto, Existence of solutions for fractional impulsive differential equations with p-Laplacian operator, Acta Math. Hung., 141(2013), 203-219.
+
+\bibitem{AngurajKRT-AMC} A. Anguraj, P. Karthikeyan, M. Riveroc, J.J. Trujillo, On new existence results for fractional integro-differential equations with impulsive and integral conditions, Comput. Math. Appl., 66(2014), 2587-2594.
+
+\bibitem{StamovaS-CNSNS} I. Stamova, G. Stamov, Stability analysis of impulsive functional systems of fractional order, Commun. Nonlinear Sci. Numer. Simulat., 19(2014), 702-709.
+
+\bibitem{Hong-CMA} Y. Hong, Iterative learning control with initial state learning for fractional order nonlinear systems, Comput. Math. Appl., 64(2012), 3210-3216.
+
+\bibitem{Li-AMC} Y. Li, J. Wei, Fractional order nonlinear systems with delay in iterative learning control, Appl. Math. Comput., 257(2015), 546-552.
+
+\bibitem{LiuW-CNSNS} S. Liu, J. Wang, W. Wei, A study on iterative learning control for impulsive differential equations, Commun. Nonlinear Sci. Numer. Simulat., 24(2015), 4-10.
+
+\bibitem{Byszewski} L. Byszewski, Theorems about the existence and uniqueness of solutions of a semilinear evolution nonlocal Cauchy problem, J. Math. Anal. App., 162(1991), 494-505.
+
+\bibitem{WangM-AMC} R. Wang, Q. Ma, Some new results for multi-valued fractional evolution equations, Appl. Math. Comput., 257(2015), 285-294.
+
+\bibitem{Siraj-CMA} I. Siraj, I. Aziz, M. Ahmad, Numerical solution of two-dimensional elliptic PDEs with nonlocal boundary conditions, Comput. Math. Appl., 69(2015), 180-205.
+
+\bibitem{AlsaediNA-ADE} A. Alsaedi, S.K. Ntouyas, R.P. Agarwal, On Caputo type sequential fractional differential equations with nonlocal integral boundary conditions, Adv. Differ. Eq., 33(2015), DOI: 10.1186/s13662-015-0379-9, 1-12.
+
+\bibitem{KamaljeetD} Kamaljeet, D. Bahuguna,, Monotone iterative technique for nonlocal fractional differential equations with finite delay in a Banach space, Electron. J. Qual. Theo., 9(2015), 1-16.
+
+\bibitem{TariboonNS} J. Tariboon, S.K. Ntouyas, W. Sudsutad, Nonlocal Hadamard fractional integral conditions for nonlinear Riemann-Liouville fractional differential equations, Bound. Value Probl., 253(2014), DOI: 10.1186/s13661-014-0253-9, 1-16.
+
+\bibitem{Vijayakumar} V. Vijayakumar, C. Ravichandran, R. Murugesu, J.J. Trujillo, Controllability results for a class of fractional semilinear integro-differential inclusions via resolvent operators, Appl. Math. Comput., 247(2014), 152-161.
+
+\bibitem{Debbouche} A. Debbouche, J.J. Nieto, Sobolev type fractional abstract evolution equations with nonlocal conditions and optimal multi-controls, Appl. Math. Comput., 245(2014), 74-85
+
+\bibitem{Tariboon} J. Tariboon, T. Sitthiwirattham,  S.K. Ntouyas, Existence results for fractional differential inclusions with multi-point and fractional integral boundary conditions, J. Comput. Anal. Appl., 17(2014), 343-360.
+
+\bibitem{Suantai} S. Suantai, S.K. Ntouyas, S. Asawasamrit, J. Tariboon, A coupled system of fractional $q$-integro-difference equations with nonlocal fractional $q$-integral boundary conditions, Adv. Differ. Eq., 124(2015), DOI: 10.1186/s13662-015-0462-2, 1-21.
+
+\bibitem{Ahmad-EJQT} B. Ahmad, S.K. Ntouyas, A. Alsaedi, H. A-Hutami, Nonlinear $q$-fractional differential equations with nonlocal and sub-strip type boundary conditions, Electron. J. Qual. Theo., 26(2014), 1-12.
+
+
+\bibitem{Dong} X. Dong, J. Wang, Y. Zhou, On nonlocal problems for fractional differential equations in Banach Spaces, Opuscula Math., 31(2011), 341-357.
+
+
+\bibitem{Boucherif-DSA} A. Boucherif, S. K. Ntouyas, Nonlocal initial value problems for first order fractional differential equations, Dynam. Syst. Appl., 20(2011), 247-260.
+
+\bibitem{Nica-FIX} O. Nica, Nonlocal initial value problems for first differential systems , Fixed Point Theor., 13(2012), 603-612.
+
+
+\bibitem{NicaP} O. Nica, R. Precup, On the nonlocal initial value problem for first order differential systems, Stud. Univ. Babe\c{s}-BolyaiMath., 56(2011), 113-125.
+
+
+\bibitem{Nica-EJDE} O. Nica, Initial-value problems for first order differential systems with general nonlocal conditions, Electron. J. Differ. Eq., 2012(2012), 1-15.
+
+\bibitem{WangLZ} J. Wang, X. Li, Y. Zhou, Nonlocal Cauchy problems for fractional order nonlinear differential systems, Cent. Eur. J. Phys., 11(2013), 1399-1413.
+
+
+\bibitem{R. Precup09} R. Precup, The role of matrices that are convergent to zero in the study of semilinear operator systems, Math. Comput. Model., 49(2009), 703-708.
+
+\bibitem{Precup-KD} R. Precup, Methods in nonlinear integral equations, Kluwer, Dordrecht, 2002.
+
+\bibitem{Agarwal-C} R.P. Agarwal, M.Meehan, D. O'Regan, Fixed point theory and applications, Cambridge University Press, Cambridge, 2001.
+
+\bibitem{BoucherifR-FPT} A. Boucherif, R. Precup, On the nonlocal intial value problem for first order differential equations, Fixed Point Theor., 4(2003), 205-212.
+
+\end{thebibliography}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 致谢%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thanks}
+
+值此论文完成之际，谨在此向多年来给予我关心和帮助的老师、同学、
+朋友和家人表示衷心的感谢！
+
+......
+
+贵州大学硕博论文~\LaTeX{}~模板作者向以下高校~\LaTeX{}~模板作者（团队）致谢：
+\begin{itemize}
+  \item 中科院研究生院CASthesis（特别鸣谢）
+  \item 哈尔滨工业大学PlutoThesis
+  \item 电子科技大学UESTCthesis
+\end{itemize}
+
+谨将此论文模板，献给我们最爱的母校：贵州大学。
+
+\end{thanks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%攻读学位期间科研和论文情况%%%%%%%%%%%%%%%
+\newpage
+\Nchapter{攻读硕士学位期间科研和论文情况}  %博士同学请注意修改此标题
+
+\begin{resumesection}{一、科研工作}
+参与如下科研项目：\\
+国家自然科学基金：基金题目（编号）。
+\end{resumesection}
+
+\begin{resumelist}{二、发表论文}
+[1] Ji-Hong Zhang, Ling-Yun Wu and Xiang-Sun Zhang.
+  Reconstruction of DNA sequencing by hybridization.
+  Bioinformatics (SCI), vol 19(1), pages 14-21, 2003.
+
+[2] 吴凌云.
+  C\TeX{} FAQ (常见问题集).
+  2004.
+\end{resumelist}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 声明%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+ \pagestyle{empty}
+%\textwidth 14.5 true cm  %默认14.5
+\begin{center}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{shengming.pdf}
+\end{figure}
+\end{center}
+
+
+\end{document}
